@@ -2,6 +2,10 @@
 import MainSectionTextField from "./MainSectionTextField.vue";
 import MainSectionIndicator from "./MainSectionIndicator.vue";
 import MainSectionButton from "./MainSectionButton.vue";
+
+import { useIndexStore } from "../../store";
+
+const store = useIndexStore();
 </script>
 
 <template>
@@ -12,7 +16,7 @@ import MainSectionButton from "./MainSectionButton.vue";
         <div class="main-section_ui">
             <MainSectionIndicator />
             <MainSectionIndicator />
-            <MainSectionButton />
+            <MainSectionButton @click="store.startReset"/>
         </div>
     </section>
 </template>
@@ -40,6 +44,8 @@ import MainSectionButton from "./MainSectionButton.vue";
         // margin-right: 18px;
 
         border-right: 1px solid $lines-color;
+
+        overflow: hidden;
     }
 
     &_ui {

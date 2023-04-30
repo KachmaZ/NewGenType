@@ -25,7 +25,6 @@ const classObject = computed({
         else if (position.value === 'right') {
             position_class = "key_position__right"
         }
-        console.log({position_class, size_class})
 
         return [position_class, size_class]
     }
