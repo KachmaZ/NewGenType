@@ -16,7 +16,7 @@ const store = useIndexStore();
         <div class="main-section_ui">
             <MainSectionIndicator />
             <MainSectionIndicator />
-            <MainSectionButton @click="store.fetchText"/>
+            <MainSectionButton @click="store.startReset"/>
         </div>
     </section>
 </template>
@@ -44,6 +44,8 @@ const store = useIndexStore();
         // margin-right: 18px;
 
         border-right: 1px solid $lines-color;
+
+        overflow: hidden;
     }
 
     &_ui {
