@@ -1,7 +1,9 @@
 <template>
     <div class="text-field">
-        <p v-if="!store.text">{{ store.name }}</p>
-        <p v-else>{{ store.text }}</p>
+        <h2 class="text-field_title" v-if="!store.text">Let's start!</h2>
+        <div class="text-field_wrapper" v-else >
+            <MainSectionTextUnit v-for="letter, index in store.text" :value="letter" :orderNumber="index" :key="index" />
+        </div>
     </div>
 </template>
 
@@ -14,5 +16,10 @@ const store = useIndexStore();
 </script>
 
 <style lang="scss" scoped>
-
+.text-field {
+    &_title {
+        width: 100%;
+        text-align: center;
+    }
+}
 </style>

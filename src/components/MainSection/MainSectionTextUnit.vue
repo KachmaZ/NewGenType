@@ -7,6 +7,7 @@
 <script setup>
 const props = defineProps({
   value: String,
+  orderNumber: Number,
 });
 </script>
 
