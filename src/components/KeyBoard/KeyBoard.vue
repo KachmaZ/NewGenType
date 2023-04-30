@@ -7,7 +7,11 @@ import kb_config from '../../../keyboard.config'
 <template>
     <div class="keyboard">
         <div class="keyboard_line" v-for="line, index in kb_config" :key="index">
-            <KeyBoardKey v-for="key in line" :value="key.value" :size="key.size" :key="key.value"/>
+            <KeyBoardKey v-for="key in line" 
+            :value="key.value" 
+            :size="key.size" 
+            :position="key.position"
+            :key="key.value"/>
         </div> 
     </div>
 </template>

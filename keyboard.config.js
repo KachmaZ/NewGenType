@@ -42,12 +42,14 @@ export default [
         {
             value: 'Backspace',
             size: 1,
+            position: 'right',
         },
     ],
     [
         {
             value: 'Tab',
             size: 1,
+            position: 'left',
         },
         {
             value: 'q',
@@ -93,6 +95,7 @@ export default [
         {
             value: 'CapsLock',
             size: 2,
+            position: 'left',
         },
         {
             value: 'a',
@@ -130,12 +133,14 @@ export default [
         {
             value: 'Enter',
             size: 2,
+            position: 'right',
         },
     ],
     [        
         {
-            value: 'Shift',
+            value: 'Left Shift',
             size: 3,
+            position: 'left',
         },
         {
             value: 'z',
@@ -169,8 +174,9 @@ export default [
         },
         
         {
-            value: 'Shift',
+            value: 'Right Shift',
             size: 3,
+            position: 'right',
         },
     ],
     [

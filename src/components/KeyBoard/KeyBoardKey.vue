@@ -10,14 +10,24 @@ import {computed, toRefs} from "vue";
 const props = defineProps({
   value: String,
   size: Number,
+  position: String,
 });
 
-const {value, size} = toRefs(props);
+const {value, size, position} = toRefs(props);
 
 const classObject = computed({
     get() {
-        console.log(size.value);
-        return size.value?`key_size${size.value}`:''
+        let position_class;
+        const size_class = size.value?`key_size__${size.value}`:'';
+        if (position.value === 'left') {
+            position_class = "key_position__left"
+        }
+        else if (position.value === 'right') {
+            position_class = "key_position__right"
+        }
+        console.log({position_class, size_class})
+
+        return [position_class, size_class]
     }
 })
 </script>
@@ -26,6 +36,8 @@ const classObject = computed({
 .key {
     width: 46px;
     height: 100%;
+
+    padding: 0 8px;
 
     display: flex;
     justify-content: center;
@@ -38,20 +50,39 @@ const classObject = computed({
 
     background-color: $kb-bg-color;
     border-radius: 4px;
-}
 
-.key_size1 {
-    width: 72px;
+    &_size {
+        &__1 {
+            width: 72px;
 
-    font-size: 12px;
-}
-.key_size2 {
-    width: 87px;
-}
-.key_size3 {
-    width: 110px;
-}
-.key_size4 {
-    width: 390px;
+            font-size: 12px;
+        }
+
+        &__2 {
+            width: 87px;
+            
+            font-size: 12px;
+        }
+
+        &__3 {
+            width: 110px;
+
+            font-size: 12px;
+        }
+
+        &__4 {
+            width: 390px;
+        }
+    }
+
+    &_position {
+        &__left {
+            justify-content: start;
+        }
+
+        &__right {
+            justify-content: end;
+        }
+    }
 }
 </style>
