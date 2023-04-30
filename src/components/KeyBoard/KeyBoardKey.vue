@@ -1,11 +1,25 @@
 <template>
-    <div class="key">
-        Ё
+    <div class="key" :class="classObject">
+        {{ value }}
     </div>
 </template>
 
 <script setup>
+import {computed, toRefs} from "vue";
 
+const props = defineProps({
+  value: String,
+  size: Number,
+});
+
+const {value, size} = toRefs(props);
+
+const classObject = computed({
+    get() {
+        console.log(size.value);
+        return size.value?`key_size${size.value}`:''
+    }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -28,6 +42,8 @@
 
 .key_size1 {
     width: 72px;
+
+    font-size: 12px;
 }
 .key_size2 {
     width: 87px;
@@ -35,7 +51,7 @@
 .key_size3 {
     width: 110px;
 }
-.key_space {
+.key_size4 {
     width: 390px;
 }
 </style>

@@ -1,73 +1,14 @@
 <script setup>
 import KeyBoardKey from './KeyBoardKey.vue';
+
+import kb_config from '../../../keyboard.config'
 </script>
 
 <template>
     <div class="keyboard">
-        <div class="keyboard_line">
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey class="key_size1"/>
+        <div class="keyboard_line" v-for="line, index in kb_config" :key="index">
+            <KeyBoardKey v-for="key in line" :value="key.value" :size="key.size" :key="key.value"/>
         </div> 
-        <div class="keyboard_line">
-            <KeyBoardKey class="key_size1" />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-        </div> 
-        <div class="keyboard_line">
-            <KeyBoardKey class="key_size2" />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey class="key_size2"/>
-        </div> 
-        <div class="keyboard_line">
-            <KeyBoardKey class="key_size3" />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey />
-            <KeyBoardKey class="key_size3"/>
-        </div> 
-        <div class="keyboard_line">
-            <KeyBoardKey class="key_space" />
-        </div>
     </div>
 </template>
 
