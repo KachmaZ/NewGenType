@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+$base-bg-color: #282828;
+$base-text-color: #FFFFFF;
+$lines-color: #434343;
+
+$field-bg-color: #FFFFFF;
+$field-text-color: #282828;
+$complite-text-color: #909090;
+$mistake-text-color: #FF0000; 
+
+$kb-bg-color: #D9D9D926;
+$kb-text-color: #FFFFFF; 
+
+#app {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: $base-text-color;
+    font-family: 'Inter', sans-serif;
+
+    background-color: $base-bg-color;
+}
