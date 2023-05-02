@@ -42,7 +42,6 @@ function checkStatus() {
 }
 
 store.$subscribe((mutation, state) => {
-    console.log(state.currentLetterIndex)
     if (state.currentLetterIndex !== undefined) {
         checkStatus()
     }

@@ -1,8 +1,10 @@
+import { computed } from '@vue/reactivity';
 import { defineStore } from 'pinia'
 import { ref } from 'vue';
 
 export const useIndexStore = defineStore('index',() => {
     const text = ref('');
+    const processedText = computed(() => text.value.split('').filter(filterDoubleSpaces))
     const currentLetterIndex = ref(0)
     const currentLetter = ref('')
 
@@ -25,9 +27,13 @@ export const useIndexStore = defineStore('index',() => {
         currentLetter.value = text.value[currentLetterIndex.value]
     }
 
+    function filterDoubleSpaces(letter, index, text) {
+        return !(text[index] === ' ' && text[index - 1] === ' ')
+    }
+
     function startReset() {
         fetchText();
     }
 
-    return {text, currentLetterIndex, currentLetter, fetchText, nextLetter, startReset}
+    return {processedText, currentLetterIndex, currentLetter, fetchText, nextLetter, startReset}
 })
