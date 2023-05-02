@@ -26,13 +26,6 @@ function onKeyDown(event) {
         // Обработка верно нажатой клавиши
         if(event.key === store.currentLetter){
             store.nextLetter();
-
-            // if (current === letters.length) {
-            //     finish();
-            // }
-
-            // keyPermanentHighlighting(letters[current].textContent);
-            // letters[current].classList.add('current');
         }
     }
 
