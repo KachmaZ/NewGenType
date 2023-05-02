@@ -8,7 +8,7 @@ import kb_config from '../../../keyboard.config'
     <div class="keyboard">
         <div class="keyboard_line" v-for="line, index in kb_config" :key="index">
             <KeyBoardKey v-for="key in line" 
-            :value="key.value" 
+            :innerText="key.value" 
             :size="key.size" 
             :position="key.position"
             :key="key.value"/>

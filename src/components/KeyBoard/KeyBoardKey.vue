@@ -1,32 +1,58 @@
 <template>
     <div class="key" :class="classObject">
-        {{ value }}
+        {{ innerText }}
     </div>
 </template>
 
 <script setup>
-import {computed, toRefs} from "vue";
+import {computed, ref, toRefs} from "vue";
+
+import { useIndexStore } from "../../store";
+
+const store = useIndexStore();
 
 const props = defineProps({
-  value: String,
+  innerText: String,
   size: Number,
   position: String,
 });
 
-const {value, size, position} = toRefs(props);
+const {innerText, size, position} = toRefs(props);
+const isCurrent = ref(false);
+const isMistake = ref(false);
 
 const classObject = computed({
     get() {
-        let position_class;
-        const size_class = size.value?`key_size__${size.value}`:'';
-        if (position.value === 'left') {
-            position_class = "key_position__left"
-        }
-        else if (position.value === 'right') {
-            position_class = "key_position__right"
-        }
+        // const position_class = position.value ? `key_position__${position.value}` : '';
 
-        return [position_class, size_class]
+        // const size_class = size.value ? `key_size__${size.value}` : '';
+
+        return [
+            position.value ? `key_position__${position.value}` : '', 
+            size.value ? `key_size__${size.value}` : '', 
+            isCurrent.value ? 'key_status__current' : '', 
+            isMistake.value ? 'key_status__mistake' : '',
+        ]
+    }
+})
+
+function checkCurrent() {
+    if (store.currentLetter === ' ' && innerText.value === 'Space') {
+        isCurrent.value = true;
+    }
+    else if (store.currentLetter.toLowerCase() === innerText.value) {
+        isMistake.value = false;
+        isCurrent.value = true;
+    }
+    else {
+        isMistake.value = false;
+        isCurrent.value = false;
+    }
+}
+
+store.$subscribe((mutation, state) => {
+    if (state.currentLetter !== undefined) {
+        checkCurrent()
     }
 })
 </script>
@@ -82,6 +108,16 @@ const classObject = computed({
         &__right {
             justify-content: end;
         }
+    }
+
+    &_status {
+        &__current {
+            color: $kb-current-text-color;
+        }
+
+        &__mistake {
+        color: $kb-mistake-text-color;
+    }
     }
 }
 </style>

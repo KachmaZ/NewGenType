@@ -19,7 +19,7 @@ export const useIndexStore = defineStore('index',() => {
 
         // Resetting variables on restart
         currentLetterIndex.value = 0;
-        currentLetter.value = text.value[currentLetterIndex.value];
+        currentLetter.value = processedText.value[currentLetterIndex.value];
     }  
 
     function nextLetter() {
