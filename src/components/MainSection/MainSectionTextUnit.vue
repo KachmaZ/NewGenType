@@ -51,9 +51,14 @@ store.$subscribe((mutation, state) => {
 
 <style lang="scss" scoped>
 .text-unit {
+    line-height: 18px;
+
+    transition: linear 100ms;
+
     border-radius: 2px;
     &__current {
-        background-color: $current-bg-color;
+        font-size: 18px;
+        line-height: 18px;
     }
 
     &__passed {
@@ -61,7 +66,7 @@ store.$subscribe((mutation, state) => {
     }
 
     &__mistake {
-        background-color: $mistake-bg-color;
+        color: $mistake-text-color;
 
     }
 }
