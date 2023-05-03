@@ -1,6 +1,7 @@
 <script setup>
 import KeyBoardKey from './KeyBoardKey.vue';
 
+// Keyboard line-buttoned configuration
 import kb_config from '../../../keyboard.config'
 </script>
 

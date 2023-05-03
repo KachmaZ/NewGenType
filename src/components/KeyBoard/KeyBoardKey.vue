@@ -5,7 +5,8 @@
 </template>
 
 <script setup>
-import {computed, ref, toRefs} from "vue";
+import { storeToRefs } from "pinia";
+import {computed, ref, toRefs, watch} from "vue";
 
 import { useIndexStore } from "../../store";
 
@@ -20,6 +21,8 @@ const props = defineProps({
 const {innerText, size, position} = toRefs(props);
 const isCurrent = ref(false);
 const isMistake = ref(false);
+
+const {currentLetter, lastMistake} = storeToRefs(store);
 
 const classObject = computed({
     get() {
@@ -50,11 +53,15 @@ function checkCurrent() {
     }
 }
 
-store.$subscribe((mutation, state) => {
-    if (state.currentLetter !== undefined) {
+watch(currentLetter, () => {
         checkCurrent()
-    }
 })
+
+// store.$subscribe((mutation, state) => {
+//     if (state.currentLetter !== undefined) {
+//         checkCurrent()
+//     }
+// })
 </script>
 
 <style lang="scss" scoped>
