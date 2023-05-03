@@ -41,8 +41,7 @@ const store = useIndexStore();
         height: 100%;
         
         padding: 8px;
-        // margin-right: 18px;
-
+        
         border-right: 1px solid $lines-color;
 
         overflow: hidden;

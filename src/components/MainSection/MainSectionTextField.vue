@@ -26,14 +26,13 @@ function onKeyDown(event) {
         // Successes handling
         if(event.key === store.currentLetter){
             store.nextLetter();
-
-            // if (current === letters.length) {
-            //     finish();
-            // }
-
-            // keyPermanentHighlighting(letters[current].textContent);
-            // letters[current].classList.add('current');
         }
+        // Mistakes handling
+        else {
+            store.setLastMistake(event.key)
+        }
+        
+        store.incrementTaps();
     }
 
     return false

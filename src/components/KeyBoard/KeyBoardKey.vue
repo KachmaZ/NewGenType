@@ -26,10 +26,6 @@ const {currentLetter, lastMistake} = storeToRefs(store);
 
 const classObject = computed({
     get() {
-        // const position_class = position.value ? `key_position__${position.value}` : '';
-
-        // const size_class = size.value ? `key_size__${size.value}` : '';
-
         return [
             position.value ? `key_position__${position.value}` : '', 
             size.value ? `key_size__${size.value}` : '', 
