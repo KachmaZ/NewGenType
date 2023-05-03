@@ -22,7 +22,7 @@ const {innerText, size, position} = toRefs(props);
 const isCurrent = ref(false);
 const isMistake = ref(false);
 
-const {currentLetterIndex, currentLetter, lastMistake} = storeToRefs(store);
+const {currentLetter, lastMistake} = storeToRefs(store);
 
 const classObject = computed({
     get() {
@@ -61,7 +61,7 @@ function lightMistake() {
     }
 }
 
-watch(currentLetterIndex, () => {
+watch(currentLetter, () => {
     checkStatus()
 })
 

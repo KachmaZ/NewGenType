@@ -9,7 +9,7 @@ export const useIndexStore = defineStore('index',() => {
 
     // Current letter data
     const currentLetterIndex = ref(0);
-    const currentLetter = ref('');
+    const currentLetter = computed(() => processedText.value[currentLetterIndex.value]);
 
     // Total taps
     const taps = ref(0);
@@ -29,13 +29,11 @@ export const useIndexStore = defineStore('index',() => {
 
         // Resetting variables on restart
         currentLetterIndex.value = 0;
-        currentLetter.value = processedText.value[currentLetterIndex.value];
     }  
 
     function nextLetter() {
         // Incrementing current letter data
         currentLetterIndex.value++;
-        currentLetter.value = text.value[currentLetterIndex.value];
     }
 
     function incrementTaps() {

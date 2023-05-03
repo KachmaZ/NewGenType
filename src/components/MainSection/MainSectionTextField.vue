@@ -1,6 +1,6 @@
 <template>
     <div class="text-field">
-        <h2 class="text-field_title" v-if="!store.processedText">Let's start!</h2>
+        <h2 class="text-field_title" v-if="store.processedText.length === 0">Let's start!</h2>
         <div class="text-field_wrapper" v-else >
             <MainSectionTextUnit v-for="letter, index in store.processedText" 
             :value="letter" 
