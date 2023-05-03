@@ -47,7 +47,7 @@ export default [
     ],
     [
         {
-            value: 'Tab',
+            value: 'tab',
             size: 1,
             position: 'left',
         },
@@ -93,7 +93,7 @@ export default [
     ],
     [        
         {
-            value: 'CapsLock',
+            value: 'capsLock',
             size: 2,
             position: 'left',
         },
@@ -131,14 +131,14 @@ export default [
             value: '\'',
         },
         {
-            value: 'Enter',
+            value: 'enter',
             size: 2,
             position: 'right',
         },
     ],
     [        
         {
-            value: 'Left Shift',
+            value: 'left shift',
             size: 3,
             position: 'left',
         },
@@ -174,14 +174,14 @@ export default [
         },
         
         {
-            value: 'Right Shift',
+            value: 'right shift',
             size: 3,
             position: 'right',
         },
     ],
     [
         {
-            value: 'Space',
+            value: 'space',
             size: 4,
         }
     ]

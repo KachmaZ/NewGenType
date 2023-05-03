@@ -22,7 +22,7 @@ const {innerText, size, position} = toRefs(props);
 const isCurrent = ref(false);
 const isMistake = ref(false);
 
-const {currentLetter, lastMistake} = storeToRefs(store);
+const {currentLetterIndex, currentLetter, lastMistake} = storeToRefs(store);
 
 const classObject = computed({
     get() {
@@ -36,10 +36,8 @@ const classObject = computed({
 })
 
 function checkStatus() {
-    if (store.currentLetter === ' ' && innerText.value === 'Space') {
-        isCurrent.value = true;
-    }
-    else if (store.currentLetter.toLowerCase() === innerText.value) {
+    if (currentLetter.value.toLowerCase() === innerText.value 
+            || currentLetter.value === ' ' && innerText.value === 'space') {
         isMistake.value = false;
         isCurrent.value = true;
     }
@@ -47,15 +45,23 @@ function checkStatus() {
         isMistake.value = false;
         isCurrent.value = false;
     }
+    
+    if (/^[A-Z]*$/.test(currentLetter.value) 
+            && innerText.value.includes('shift'))
+    {
+        isMistake.value = false;
+        isCurrent.value = true;
+    }
 }
 
 function lightMistake() {
-    if (lastMistake.value === innerText.value) {
+    if (lastMistake.value === innerText.value
+    || lastMistake.value === ' ' && innerText.value === 'Space') {
         isMistake.value = true;
     }
 }
 
-watch(currentLetter, () => {
+watch(currentLetterIndex, () => {
     checkStatus()
 })
 
@@ -125,7 +131,7 @@ watch(lastMistake, () => {
 
         &__mistake {
         color: $kb-mistake-text-color;
-    }
+        }
     }
 }
 </style>
