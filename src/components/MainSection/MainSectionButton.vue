@@ -1,11 +1,15 @@
 <template>
     <button>
-        Заново
+        <span v-if="store.processedText.length === 0">Start</span>
+        <span v-else>Restart</span>
     </button>
 </template>
 
 <script setup>
+import { useIndexStore } from "../../store";
 
+
+const store = useIndexStore()
 </script>
 
 <style lang="scss" scoped>
