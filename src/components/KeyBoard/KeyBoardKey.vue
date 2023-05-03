@@ -35,7 +35,7 @@ const classObject = computed({
     }
 })
 
-function checkCurrent() {
+function checkStatus() {
     if (store.currentLetter === ' ' && innerText.value === 'Space') {
         isCurrent.value = true;
     }
@@ -49,15 +49,19 @@ function checkCurrent() {
     }
 }
 
+function lightMistake() {
+    if (lastMistake.value === innerText.value) {
+        isMistake.value = true;
+    }
+}
+
 watch(currentLetter, () => {
-        checkCurrent()
+    checkStatus()
 })
 
-// store.$subscribe((mutation, state) => {
-//     if (state.currentLetter !== undefined) {
-//         checkCurrent()
-//     }
-// })
+watch(lastMistake, () => {
+    lightMistake()
+})
 </script>
 
 <style lang="scss" scoped>
