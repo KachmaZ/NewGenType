@@ -40,7 +40,7 @@ export default [
             value: '=',
         },
         {
-            value: 'Backspace',
+            value: '←',
             size: 1,
             position: 'right',
         },

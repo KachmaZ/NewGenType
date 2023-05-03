@@ -79,6 +79,7 @@ watch(lastMistake, () => {
     font-size: 16px;
     font-weight: 300;
     line-height: 17.6px;
+    text-transform: uppercase;
 
     background-color: $kb-bg-color;
     border-radius: 4px;
