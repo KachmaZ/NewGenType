@@ -18,6 +18,10 @@ export const useIndexStore = defineStore('index',() => {
     const mistakes = computed(() => taps.value - currentLetterIndex.value);
     const lastMistake = ref('');
 
+    // Timer ID
+    const timer = ref(0);
+    const timerID = ref(undefined)
+
     async function fetchText() {
         // Fetching text
         let response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&start-with-lorem=1&paras=2&format=text', 
@@ -26,9 +30,6 @@ export const useIndexStore = defineStore('index',() => {
         })
         
         text.value = await response.text();
-
-        // Resetting variables on restart
-        currentLetterIndex.value = 0;
     }  
 
     function nextLetter() {
@@ -52,8 +53,21 @@ export const useIndexStore = defineStore('index',() => {
     }
 
     function startReset() {
+        // Resetting variables on restart
+        currentLetterIndex.value = 0;
+        taps.value = 0;
+        lastMistake.value = '';
+        timer.value = 0;
+
+        if (typeof timerID.value !== 'undefined'){
+            clearInterval(timerID.value);        
+        }
+
         fetchText();
+        timerID.value = setInterval(()=> {
+            timer.value++
+        }, 1000)
     }
 
-    return {processedText, currentLetterIndex, currentLetter, taps, mistakes, lastMistake, fetchText, nextLetter, incrementTaps, setLastMistake, startReset}
+    return {processedText, currentLetterIndex, currentLetter, taps, mistakes, lastMistake, timer, fetchText, nextLetter, incrementTaps, setLastMistake, startReset}
 })

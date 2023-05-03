@@ -14,8 +14,18 @@ const store = useIndexStore();
             <MainSectionTextField />
         </div>
         <div class="main-section_ui">
-            <MainSectionIndicator />
-            <MainSectionIndicator />
+            <MainSectionIndicator 
+                :title="'Скорость'"
+                :measure="'зн./мин'"
+                :firstParam="'currentLetterIndex'"
+                :secondParam="'timer'"
+                :multiplier="60"/>
+            <MainSectionIndicator 
+                :title="'Точность'"
+                :measure="'%'"
+                :firstParam="'currentLetterIndex'"
+                :secondParam="'taps'"
+                :multiplier="100"/>
             <MainSectionButton @click="store.startReset"/>
         </div>
     </section>
