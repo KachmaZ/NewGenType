@@ -23,10 +23,16 @@ function onKeyDown(event) {
     event.preventDefault();
     
     if (event.key !== 'Shift') {
-        // Обработка верно нажатой клавиши
+        // Successes handling
         if(event.key === store.currentLetter){
             store.nextLetter();
         }
+        // Mistakes handling
+        else {
+            store.setLastMistake(event.key)
+        }
+        
+        store.incrementTaps();
     }
 
     return false
