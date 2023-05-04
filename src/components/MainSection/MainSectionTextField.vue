@@ -6,6 +6,7 @@
             :value="letter" 
             :orderNumber="index" 
             :key="index" 
+            @click="test"
             />
         </div>
     </div>
@@ -19,13 +20,23 @@ import { onMounted } from 'vue';
 
 const store = useIndexStore();
 
+function test() {
+    console.log("Length", store.processedText.length)
+    console.log("Current", store.currentLetterIndex)
+}
+
 function onKeyDown(event) {
     event.preventDefault();
     
     if (event.key !== 'Shift') {
         // Successes handling
-        if(event.key === store.currentLetter){
-            store.nextLetter();
+        if(event.key === store.currentLetter){            
+            if (store.currentLetterIndex === store.processedText.length - 1) {
+                store.finish();
+            }
+            else {
+                store.nextLetter();
+            }            
         }
         // Mistakes handling
         else {

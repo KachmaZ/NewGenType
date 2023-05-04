@@ -4,7 +4,7 @@
             <span class="indicator_data_value">{{ indicatorValue }}</span>
             <span class="indicator_data_measure">{{ measure }}</span>
         </div>
-        <div class="indicator_title" @click="test">
+        <div class="indicator_title">
             {{ title }}
         </div>
     </div>
@@ -36,12 +36,6 @@ const indicatorValue = computed(() => {
         return 0;
     } 
 });
-
-function test() {
-    console.log(store['taps'])
-    console.log(store[`${props.secondParam}`])
-    console.log(store[`${props.firstParam}`], store[`${props.secondParam}`])
-}
 </script>
 
 <style lang="scss" scoped>

@@ -24,7 +24,7 @@ export const useIndexStore = defineStore('index',() => {
 
     async function fetchText() {
         // Fetching text
-        let response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&start-with-lorem=1&paras=2&format=text', 
+        let response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&start-with-lorem=1&paras=1&format=text', 
         function(baconGoodness){
             resolve(baconGoodness[0]);
         })
@@ -69,5 +69,9 @@ export const useIndexStore = defineStore('index',() => {
         }, 1000)
     }
 
-    return {processedText, currentLetterIndex, currentLetter, taps, mistakes, lastMistake, timer, fetchText, nextLetter, incrementTaps, setLastMistake, startReset}
+    function finish() {
+        clearInterval(timerID.value);
+    }
+
+    return {processedText, currentLetterIndex, currentLetter, taps, lastMistake, timer, fetchText, nextLetter, incrementTaps, setLastMistake, startReset, finish}
 })
