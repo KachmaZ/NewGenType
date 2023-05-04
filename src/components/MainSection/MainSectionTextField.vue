@@ -25,33 +25,29 @@ function test() {
     console.log("Current", store.currentLetterIndex)
 }
 
-function onKeyDown(event) {
-    event.preventDefault();
+// function onKeyDown(event) {
+//     event.preventDefault();
     
-    if (event.key !== 'Shift') {
-        // Successes handling
-        if(event.key === store.currentLetter){            
-            if (store.currentLetterIndex === store.processedText.length - 1) {
-                store.finish();
-            }
-            else {
-                store.nextLetter();
-            }            
-        }
-        // Mistakes handling
-        else {
-            store.setLastMistake(event.key)
-        }
+//     if (event.key !== 'Shift') {
+//         // Successes handling
+//         if(event.key === store.currentLetter){            
+//             if (store.currentLetterIndex === store.processedText.length - 1) {
+//                 store.finish();
+//             }
+//             else {
+//                 store.nextLetter();
+//             }            
+//         }
+//         // Mistakes handling
+//         else {
+//             store.setLastMistake(event.key)
+//         }
         
-        store.incrementTaps();
-    }
+//         store.incrementTaps();
+//     }
 
-    return false
-}
-
-onMounted(() => {
-    window.addEventListener('keydown', onKeyDown)
-}) 
+//     return false
+// }
 </script>
 
 <style lang="scss" scoped>
