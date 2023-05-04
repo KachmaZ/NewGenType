@@ -1,13 +1,3 @@
-<script setup>
-import MainSectionTextField from "./MainSectionTextField.vue";
-import MainSectionIndicator from "./MainSectionIndicator.vue";
-import MainSectionButton from "./MainSectionButton.vue";
-
-import { useIndexStore } from "../../store";
-
-const store = useIndexStore();
-</script>
-
 <template>
     <section class="main-section">
         <div class="main-section_text-field">
@@ -30,6 +20,16 @@ const store = useIndexStore();
         </div>
     </section>
 </template>
+
+<script setup>
+import MainSectionTextField from "./MainSectionTextField.vue";
+import MainSectionIndicator from "./MainSectionIndicator.vue";
+import MainSectionButton from "./MainSectionButton.vue";
+
+import { useIndexStore } from "../../store";
+
+const store = useIndexStore();
+</script>
 
 <style lang="scss" scoped>
 .main-section {

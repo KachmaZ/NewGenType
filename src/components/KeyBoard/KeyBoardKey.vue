@@ -46,9 +46,9 @@ function checkStatus() {
         isCurrent.value = false;
     }
     
+    // Checking uppercase letter to highlight shift buttons
     if (/^[A-Z]*$/.test(currentLetter.value) 
-            && innerText.value.includes('shift'))
-    {
+        && innerText.value.includes('shift')){
         isMistake.value = false;
         isCurrent.value = true;
     }

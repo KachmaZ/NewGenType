@@ -71,8 +71,6 @@ watch(lastMistake, () => {
     border-radius: 4px;
     &__current {
         transform: scale(1.2);
-        // font-size: 18px;
-        // line-height: 18px;
     }
 
     &__passed {

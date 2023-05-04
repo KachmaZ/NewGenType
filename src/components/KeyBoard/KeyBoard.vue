@@ -1,10 +1,3 @@
-<script setup>
-import KeyBoardKey from './KeyBoardKey.vue';
-
-// Keyboard line-buttoned configuration
-import kb_config from '../../../keyboard.config'
-</script>
-
 <template>
     <div class="keyboard">
         <div class="keyboard_line" v-for="line, index in kb_config" :key="index">
@@ -16,6 +9,13 @@ import kb_config from '../../../keyboard.config'
         </div> 
     </div>
 </template>
+
+<script setup>
+import KeyBoardKey from './KeyBoardKey.vue';
+
+// Keyboard line-buttoned configuration
+import kb_config from '../../../keyboard.config'
+</script>
 
 <style lang="scss" scoped>
 .keyboard {

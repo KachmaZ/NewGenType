@@ -11,6 +11,3 @@ import MainSection from './components/MainSection/MainSection.vue';
   <KeyBoard />
 </main>
 </template>
-
-<style scoped lang="scss">
-</style>

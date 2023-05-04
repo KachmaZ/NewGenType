@@ -24,10 +24,7 @@ const props = defineProps({
     multiplier: Number,
 });
 
-
-// const firstParam = computed(() => {store[props.firstParam]})
-// const secondParam = computed(() => {store[`${props.secondParam}`]})
-
+// Computed result, based on passed params division
 const indicatorValue = computed(() => {
     if (store[`${props.firstParam}`] && store[`${props.secondParam}`]) {
         return (store[`${props.firstParam}`] / store[`${props.secondParam}`] * props.multiplier).toFixed()
