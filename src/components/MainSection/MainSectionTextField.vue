@@ -60,6 +60,8 @@ onMounted(() => {
     height: 100%;
     overflow-y: scroll;
 
+    font-size: 24px;
+
     &_title {
         width: 100%;
         text-align: center;

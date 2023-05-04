@@ -4,7 +4,7 @@
         'text-unit__passed': isPassed, 
         'text-unit__mistake': isMistake}"
         >
-        {{ value }}
+        {{ value }}        
     </span>
 </template>
 
@@ -61,14 +61,18 @@ watch(lastMistake, () => {
 
 <style lang="scss" scoped>
 .text-unit {
+    display: inline-block;
+
     line-height: 18px;
+    white-space: pre-wrap;
 
     transition: linear 100ms;
 
     border-radius: 4px;
     &__current {
-        font-size: 18px;
-        line-height: 18px;
+        transform: scale(1.2);
+        // font-size: 18px;
+        // line-height: 18px;
     }
 
     &__passed {
