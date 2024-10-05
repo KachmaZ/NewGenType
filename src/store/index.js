@@ -23,12 +23,9 @@ export const useIndexStore = defineStore('index',() => {
 
     async function fetchText() {
         // Fetching text from public API
-        let response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&start-with-lorem=1&paras=1&format=text', 
-        function(baconGoodness){
-            resolve(baconGoodness[0]);
-        })
+        let response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&start-with-lorem=1&paras=1&format=text')
         
-        text.value = await response.text();
+        text.value = await response[0].text();
     }  
 
     // Incrementing current letter data
