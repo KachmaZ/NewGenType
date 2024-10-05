@@ -72,6 +72,6 @@ jobs:
           subject: Github Actions job result
           to: vera_tarzyan@mail.ru
           from: Github Actions (find-ship)
-          body: 'Worflow "${{ github.workflow }}" of "${{ github.repository }}" has finished with status "${{ needs.build.result }}".'
+          body: 'Worflow "${{ github.workflow }}" of "${{ github.repository }}" has finished with status "${{ needs.docker.result }}".'
       
   
